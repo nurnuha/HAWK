@@ -1,0 +1,26 @@
+void
+ReadToNtuple()
+{
+
+  std::ifstream in("dat.pth");
+  TNtuple* t = new TNtuple("nt", "X-sections",
+			   "kine:"
+			   "aBorn:eBorn:"
+			   "aComplete:eComplete:"
+			   "aEW:eEW:"
+			   "aQCD:eQCD:"
+			   "aGamma:eGamma:"
+			   "aGluon:eGluon");
+  Long64_t n = t->ReadStream(in);
+  Info("ReadToNTuple", "Read %lld entries", n);
+  for (Int_t i = 0; i < n; i++) {
+    t->GetEntry(i);
+    for (Int_t j = 0; j < t->GetNvar(); j++)
+      printf("%7.4f ", t->GetArgs()[j]);
+    Printf("");
+  }
+  
+  t->Draw("aBorn:kine", "", "*");
+  t->Draw("aComplete:kine", "", "* same");
+}
+

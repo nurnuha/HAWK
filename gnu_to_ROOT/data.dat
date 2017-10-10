@@ -1,0 +1,18 @@
+# histogram:  1, bins: 100
+# 
+# column  1: kinematical quantity on x-axis
+# column  2: Monte Carlo average for the Born cross-section       
+# column  3: Monte Carlo error   for the Born cross-section       
+# column  4: Monte Carlo average for the complete cross-section   
+# column  5: Monte Carlo error   for the complete cross-section   
+# column  6: Monte Carlo average for virt+real ew cross-section   
+# column  7: Monte Carlo error   for virt+real ew cross-section   
+# column  8: Monte Carlo average for virt+real QCD cross-section  
+# column  9: Monte Carlo error   for virt+real QCD cross-section  
+# column 10: Monte Carlo average for incoming photon cross-section
+# column 11: Monte Carlo error   for incoming photon cross-section
+# column 12: Monte Carlo average for incoming gluon cross-section 
+# column 13: Monte Carlo error   for incoming gluon cross-section 
+# 
+0.00000000E+00  0.120765E-01  0.620912E-04  0.119666E-01  0.356757E-03  -.849526E-03  0.393902E-04  0.281995E-02  0.345976E-03  0.340917E-05  0.106528E-05  -.208375E-02  0.465568E-04
+0.50000000E+01  0.354131E-01  0.109033E-03  0.325240E-01  0.636866E-03  -.253057E-02  0.735215E-04  0.532590E-02  0.617959E-03  0.548375E-05  0.199035E-05  -.568993E-02  0.800060E-04

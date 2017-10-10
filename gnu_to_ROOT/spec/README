@@ -1,0 +1,64 @@
+This example contains 1 program,  spectrum.cpp which does the same
+thing that the script spec.C does but this one is a stand-alone
+program.  The purpose of spectrum.cpp is to read in a ascii formated
+SpecTcl historgram file, create a root histogram for each spectcl
+histogram in the file and then generate a root file that contains
+them.  This will allow you to do fitting or other analysis of 
+histograms in root.
+
+To use the program spectrum.cpp you must have
+ROOTSYS defined and have $ROOTSYS/bin in your path
+
+There are 3 files in this package and one folder.
+the files are as follows
+
+spectrum.cpp : this file is the c++ program that will do everything
+Makefile : this is used to generate the exectuable "SpecTcl2Root"
+README  : this document
+
+the folder 
+
+test-specs : contains example spectrum that you can use to try the 
+program out with.
+
+to generate the executable type "make" on the command line
+you should then have an executable program called SpecTcl2Root
+
+to run this type 
+
+SpecTcl2Root inputfile outputfile
+
+where inputfile is the name of the ".asc" file you want to read
+and outputfile is the name of the ".root" file you want to write
+
+this will generate a root file with name outputfile
+to look at the root file begin a root session and type
+
+root[] TFile f("outputfile");
+
+this will load the root file in memory.  you can then type
+
+root[] TBrowser browser;
+
+which will generate a TBrowser object named browser
+you can look in ROOT Files and double click
+on the histograms to view them.
+
+or type f.ls()
+and then you will see the list of what is in the ROOT file
+the names of the histograms are given after there type such as 
+
+TH1F d2  where TH1F is a object of type 1d histogram and d2 is the
+histogram name.
+
+you can then use command such as Draw or FitPanel if you want in 
+the fashion below.
+
+root[] histogram name->Draw();
+
+to bring up a fit panel type 
+
+root[] histogramname->FitPanel();
+
+and you can do an interactive fit this way, for more complex fitting
+see the root manual.

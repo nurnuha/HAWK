@@ -1,0 +1,41 @@
+ int write(const TString& filename, Int_t ncol, int nrow) 
+  {
+    ofstream out(filename.Data());
+    if (!out || out.bad()) return 1;
+    
+  
+    for (Int_t i = 0; i < nrow; i++) {
+      for (Int_t j = 0; j < ncol; j++) 
+        out << i * nrow + j << "\t";
+      out << endl;
+    }
+    
+    out.close();
+  
+    return 0;
+  }
+  
+  TTree* read (const TString& filename, Int_t ncol) 
+  {
+    TString vars;
+    for (Int_t i = 0; i < ncol; i++) {
+      vars += Form("x%d", i); 
+      if (i==0) vars += "/D"; 
+      if (i + 1 != ncol) vars += ":";
+    }
+    TArrayD x(ncol);
+    TTree* tree = new TTree("tree", "Tree"); 
+    tree->Branch("data", &x.fArray, vars.Data());
+    
+    ifstream in(filename.Data());
+    if (!in || in->bad()) return 1;
+    
+    while (!in.eof()) {
+      x.Reset();
+      for (Int_t i = 0; i < ncol; i++) in >> x[i];
+      tree->Fill();
+    }
+    in.close();
+  
+    return tree;
+  }
